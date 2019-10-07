@@ -55,7 +55,7 @@ class ChatConnector(private val scanner: Scanner, private val printWriter: Print
             Commands.Users -> ChatHistory.printUsers(chatMessage)
         }
     }
-    // Init username
+    // Init usernamee
     private fun setUser(name: String) : String{
         if (Users.users.contains(name))
             printWriter.println(Json.stringify(ChatMessage.serializer(),ChatMessage(Commands.Register,"Server",
