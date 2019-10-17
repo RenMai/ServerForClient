@@ -2,17 +2,25 @@ import kotlinx.serialization.UnstableDefault
 import java.io.PrintWriter
 import java.net.ServerSocket
 import java.util.*
+
 @UnstableDefault
-class ChatServer () {
-    private val serverSocket = ServerSocket(23) //accept connections to 30000 port
+class ChatServer() {
+    private val serverSocket =
+        ServerSocket(2234) //port 23 is the default port which mean users only need to provide the ip address
 
     fun serve() {
-        while(true) {
+        while (true) {
             println("accepting")
             val socket = serverSocket.accept()
             println("accepted")
             // Start server
-            Thread(ChatConnector(Scanner(socket.getInputStream()), PrintWriter(socket.getOutputStream(), true),socket)).start()
+            Thread(
+                ChatConnector(
+                    Scanner(socket.getInputStream()),
+                    PrintWriter(socket.getOutputStream(), true),
+                    socket
+                )
+            ).start()
         }
     }
 }

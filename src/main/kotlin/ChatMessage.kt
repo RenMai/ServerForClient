@@ -1,19 +1,18 @@
 import kotlinx.serialization.Serializable
 
 @Serializable
-class ChatMessage (
+class ChatMessage(
     private val command: Commands,
     private val sender: String,
     private val receiver: String,
     private val message: String,
     private val timestamp: String
-)
-{
+) {
     override fun toString(): String {
         return message
     }
 
-    fun command() :Commands {
+    fun command(): Commands {
         return command
     }
 
