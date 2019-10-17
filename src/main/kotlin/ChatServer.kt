@@ -6,7 +6,7 @@ import java.util.*
 @UnstableDefault
 class ChatServer() {
     private val serverSocket =
-        ServerSocket(223) //port 23 is the default port which mean users only need to provide the ip address
+        ServerSocket(224) //port 23 is the default port which mean users only need to provide the ip address
 
     fun serve() {
         while (true) {
